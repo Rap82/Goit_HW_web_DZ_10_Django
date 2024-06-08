@@ -1,0 +1,12 @@
+{% extends 'quotes/base.html' %} {% block content %}
+<h2>Add Quote</h2>
+<form method="post">
+  {% csrf_token %} {% for f in form %}
+  <div class="form-group">
+    <label for="{{ f.id_for_label }}">{{f.label}}:</label>
+    <div class="col-md-4">{{ f }}</div>
+  </div>
+  {% endfor %}
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+{% endblock %}

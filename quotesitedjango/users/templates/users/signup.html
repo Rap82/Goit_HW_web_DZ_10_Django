@@ -1,0 +1,40 @@
+{% extends "users/base.html" %} {% block content %}
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <a href="{% url 'quotes:root' %}" class="btn btn-link"
+        >Go back to the main page</a
+      >
+      <hr />
+      <h2>Sign Up</h2>
+
+      <form method="post" action="{% url 'users:signup' %}">
+        {% csrf_token %}
+        <div class="form-group">
+          <label for="id_username">Username:</label>
+          {{ form.username }}
+          <span class="text-danger">{{ form.errors.username }}</span>
+        </div>
+        <div>
+          <label> Email: {{ form.email }} </label>
+          <span>{{ form.errors.email }}</span>
+        </div>
+        <div class="form-group">
+          <label for="id_password1">Password:</label>
+          {{ form.password1 }}
+          <span class="text-danger">{{ form.errors.password1 }}</span>
+        </div>
+        <div class="form-group">
+          <label for="id_password2">Password confirmation:</label>
+          {{ form.password2 }}
+          <span class="text-danger">{{ form.errors.password2 }}</span>
+        </div>
+        <div class="form-group mt-2">
+          <button type="submit" class="btn btn-primary">Submit</button>
+          <button type="reset" class="btn btn-secondary">Reset</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}

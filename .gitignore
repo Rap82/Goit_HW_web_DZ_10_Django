@@ -1,0 +1,7 @@
+__pycache__/
+quotesitedjango/quotes/__pycache__/
+quotesitedjango/quotesitedjango/__pycache__/
+quotesitedjango/users/__pycache__/
+quotesitedjango/quotes/templatetags/__pycache__/
+quotesitedjango/users/migrations/__pycache__/
+.env

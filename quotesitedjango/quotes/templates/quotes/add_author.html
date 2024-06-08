@@ -1,0 +1,22 @@
+{% extends 'quotes/base.html' %} {% block content %}
+<h2>Add Author</h2>
+{% if messages %}
+<ul class="messages">
+  {% for message in messages %}
+  <li class="{{ message.tags }}">{{ message }}</li>
+  {% endfor %}
+</ul>
+{% endif %}
+<form method="POST" enctype="multipart/form-data" class="form">
+  {% csrf_token %} {% for f in form %}
+  <div class="form-group">
+    <label for="{{ f.id_for_label }}" class="col-sm-2 col-form-label"
+      >{{ f.label }}:</label
+    >
+    <div class="col-12">{{ f }}</div>
+  </div>
+  {% endfor %}
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+{% endblock %}
